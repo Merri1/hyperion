@@ -2,6 +2,10 @@ import {Component, ViewChild} from '@angular/core';
 import {MatSort, Sort} from '@angular/material/sort';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatTableDataSource} from '@angular/material/table';
+import {User} from "./user";
+import {UserService} from "./user.service";
+
+
 
 export interface PeriodicElement {
   name: string;
@@ -24,21 +28,27 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class AppComponent {
-  title = 'DemoAngularProject';
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+export class UserComponent {
+  userList: User[] = [];
+  title = 'Users';
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'registrationDate', 'knumber'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) {}
+  constructor(private _liveAnnouncer: LiveAnnouncer,
+              private userService: UserService) {}
 
   @ViewChild(MatSort) sort!: MatSort;
 
+  ngOnInit() {
+    this.getUsers();
+  }
+
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
+
   }
 
   announceSortChange(sortState: Sort) {
@@ -51,5 +61,11 @@ export class AppComponent {
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+
+  getUsers(): void {
+    this.userService.getUsers().subscribe(users => {
+      this.userList = users});
+    console.log(this.userList[0]);
   }
 }

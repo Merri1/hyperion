@@ -1,0 +1,52 @@
+<div class="content homepage">
+    <mat-card class="home-card">
+        <mat-card-header>
+            <mat-card-title>Games</mat-card-title>
+            <mat-card-subtitle>Your saved games</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/images/games.jpg" alt="Photo of a game controller">
+        <mat-card-content>
+            <p>
+                Manage your saved games and add new ones.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="viewGames()">
+                View Games</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="home-card">
+        <mat-card-header>
+            <mat-card-title>Game Statistics</mat-card-title>
+            <mat-card-subtitle>View statistics from your games</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/images/stats.jpg" alt="Photo of a game controller">
+        <mat-card-content>
+            <p>
+                View game and player statistics for each of your games.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="viewStats()">
+                View Stats</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="home-card">
+        <mat-card-header>
+            <mat-card-title>Leave</mat-card-title>
+            <mat-card-subtitle>Logout</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/images/logout.jpg" alt="Photo of an exit sign">
+        <mat-card-content>
+            <p>
+                Logout of your current session.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="logout()">
+                Logout</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

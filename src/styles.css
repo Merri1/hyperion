@@ -1,11 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 html, body {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #ffffff;
+  background-color: #efefef;
 }
+
+.header {
+  background-color: #dcdcdc !important;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 4em auto 0;
+}
+
+.homepage .home-card {
+  margin: 0 2em 0;
+}
+
+.site-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em !important;
+}
+
+.site-dialog {
+  width: 25%;
+  margin: 10% auto 0;
+}
+
+.form-card {
+  width: 25%;
+  margin: 10% auto 0;
+}
+
+.mat-card-actions {
+  margin: 0 auto 0 !important;
+}
+
+.secondary-button {
+  color: #858585;
+}
+
+.content {
+  margin: 4em auto 0;
+  max-width: 1400px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background-color: #f1f3f4;
+}
+
+.mat-header-cell {
+  background-color: #e8f0fe;
+  color: #3278d7;
+}
+
+.data-table {
+  margin: 0 auto 0;
+  width: 80%;
+  max-width: 100em;
+}
+
+.page-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin: -2em auto 2em;
+  width: 80%;
+  max-width: 100em;
+}
+
+.page-controls button {
+  background-color: #3977d2;
+  color: white;
+}
+
+

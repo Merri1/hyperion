@@ -3,8 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   standalone: true,
   selector: 'app-player-stat',
-  templateUrl: './player-stat.component.html',
-  styleUrls: ['./player-stat.component.css']
+  templateUrl: './player-stat.component.html'
 })
 export class PlayerStatComponent implements OnInit {
 

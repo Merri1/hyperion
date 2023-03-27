@@ -10,6 +10,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { RouterLinkActive } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Game } from '../model/game';
 import { GameService } from './game.service';
 
@@ -19,14 +22,15 @@ import { GameService } from './game.service';
   templateUrl: './game.component.html',
   imports: [
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterLink,
+    RouterLinkActive
   ],
-  styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
   gameList: Game[] = [];
   title = 'Games';
-  displayedColumns: string[] = ['id', 'name', 'genre', 'registrationDate', 'owner'];
+  displayedColumns: string[] = ['id', 'name', 'genre', 'registrationDate', 'owner', 'button'];
 
   constructor(
       public dialog: MatDialog,
@@ -35,15 +39,15 @@ export class GameComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit() {
-    this.getUsers();
+    this.getGames();
   }
 
-  getUsers(): void {
+  public getGames(): void {
     this.gameService.getGames().subscribe(games => {
-      this.gameList = games});
+      this.gameList = games.filter(game => game.owner.id === parseInt(localStorage.getItem('userId')))});
   }
 
-  addGame(): void {
+  public addGame(): void {
     const dialogRef = this.dialog.open(AddGameDialog);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -65,10 +69,27 @@ export class GameComponent implements OnInit {
 export class AddGameDialog {
   public addGameForm!: FormGroup;
 
+  constructor(
+      private router: Router,
+      private gameService: GameService) { }
+
+
   ngOnInit(): void {
     this.addGameForm = new FormGroup({
       name: new FormControl('', Validators.required),
       genre: new FormControl('', Validators.required),
+    });
+  }
+
+  public addNewGame(): void {
+    this.gameService.addNewGame(
+        this.addGameForm.get('name').value,
+        this.addGameForm.get('genre').value
+    ).subscribe(data => {
+      this.router.navigate(['/game'])
+          .then(() => {
+            window.location.reload()
+          });
     });
   }
 }

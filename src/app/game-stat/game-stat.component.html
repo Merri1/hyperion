@@ -1,1 +1,55 @@
-<p>game-stat works!</p>
+<div class="content">
+    <div class="page-controls">
+        <button mat-raised-button
+                class="secondary"
+                routerLink="/homepage"
+                routerLinkActive="active">
+            Return to Home</button>
+        <button mat-raised-button
+                class="secondary"
+                routerLink="/game"
+                routerLinkActive="active">
+            Return to Games</button>
+    </div>
+    <table mat-table [dataSource]="gameStatList"
+           class="data-table" aria-label="Basic table">
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="winCount">
+            <th mat-header-cell *matHeaderCellDef> Win Count </th>
+            <td mat-cell *matCellDef="let gameStat"> {{gameStat.winCount}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="lossCount">
+            <th mat-header-cell *matHeaderCellDef> Loss Count </th>
+            <td mat-cell *matCellDef="let gameStat"> {{gameStat.lossCount}} </td>
+        </ng-container>
+
+        <!-- Genre Column -->
+        <ng-container matColumnDef="totalPlayTime">
+            <th mat-header-cell *matHeaderCellDef> Total Play Time (s) </th>
+            <td mat-cell *matCellDef="let gameStat"> {{gameStat.totalPlayTime}} </td>
+        </ng-container>
+
+        <!-- Registration Date Column -->
+        <ng-container matColumnDef="totalSessions">
+            <th mat-header-cell *matHeaderCellDef> Total Sessions </th>
+            <td mat-cell *matCellDef="let gameStat"> {{gameStat.totalSessions}} </td>
+        </ng-container>
+
+        <!-- Registration Date Column -->
+        <ng-container matColumnDef="totalPlayerCount">
+            <th mat-header-cell *matHeaderCellDef> Total Players </th>
+            <td mat-cell *matCellDef="let gameStat"> {{gameStat.totalPlayerCount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gameName">
+            <th mat-header-cell *matHeaderCellDef> Game </th>
+            <td mat-cell *matCellDef="let gameStat"> {{gameStat.game.name}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

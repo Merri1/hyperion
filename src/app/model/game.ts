@@ -4,6 +4,6 @@ export interface Game {
 	id: string;
 	name: string;
 	genre: string;
-	registrationDate: Date;
+	registrationDate: string;
 	owner: User;
 }

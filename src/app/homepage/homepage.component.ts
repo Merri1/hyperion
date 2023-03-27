@@ -12,7 +12,6 @@ import { AuthenticationService } from '../authentication/authentication.service'
     MatCardModule,
     MatButtonModule
   ],
-  styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
 

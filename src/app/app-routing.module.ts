@@ -1,4 +1,5 @@
 import { AuthenticationGuard } from './authentication/authentication.guard';
+import { GameStatComponent } from './game-stat/game-stat.component';
 import { GameComponent } from './game/game.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
@@ -9,16 +10,6 @@ import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: LoginComponent,
-    canActivate: [AuthenticationGuard]
-  },
-  {
-    path: 'homepage',
-    component: HomepageComponent,
-    //canActivate: [AuthenticationGuard]
-  },
-  {
     path: 'login',
     component: LoginComponent,
   },
@@ -27,8 +18,24 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
+    path: '',
+    component: LoginComponent,
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    path: 'homepage',
+    component: HomepageComponent,
+    canActivate: [AuthenticationGuard]
+  },
+  {
     path: 'game',
     component: GameComponent,
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    path: 'game/:id',
+    component: GameStatComponent,
+    canActivate: [AuthenticationGuard]
   }
 ];
 

@@ -10,7 +10,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
   imports: [
     FormsModule,
     ReactiveFormsModule,

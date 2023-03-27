@@ -11,7 +11,8 @@ body {
 }
 
 .header {
-  background-color: #dcdcdc !important;
+  background-color: #36475b !important;
+  color: white;
 }
 
 .homepage {
@@ -81,9 +82,19 @@ body {
   max-width: 100em;
 }
 
-.page-controls button {
+.page-controls .primary {
   background-color: #3977d2;
   color: white;
+  margin-left: 2em;
+}
+
+.page-controls .secondary {
+  color: #507ec7;
+  margin-left: 2em;
+}
+
+.table-link {
+  color: #507ec7;
 }
 
 

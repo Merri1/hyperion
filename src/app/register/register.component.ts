@@ -19,8 +19,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
     MatButtonModule,
     RouterLink,
     RouterLinkActive
-  ],
-  styleUrls: ['./register.component.css']
+  ]
 })
 export class RegisterComponent implements OnInit {
   public registerForm!: FormGroup;
@@ -38,7 +37,19 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmit() {
+    if(this.registerForm.get('kNumber') == null) {
+      this.registerForm.setValue({kNumber: ' '});
+    }
 
+    if(this.registerForm.valid) {
+      this.authenticationService.register(
+          this.registerForm.get('firstName').value,
+          this.registerForm.get('lastName').value,
+          this.registerForm.get('email').value,
+          this.registerForm.get('password').value,
+          this.registerForm.get('kNumber').value
+      );
+    }
   }
 
 }

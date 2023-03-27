@@ -3,6 +3,7 @@ export interface User {
   firstName: string;
   lastName: string;
   email: string;
+  password: string;
   registrationDate: string;
-  knumber: string;
+  kNumber: string;
 }

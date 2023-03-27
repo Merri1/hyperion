@@ -28,6 +28,7 @@ import { RegisterComponent } from './register/register.component';
     AppComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -42,10 +43,10 @@ import { RegisterComponent } from './register/register.component';
     RegisterComponent,
     HomepageComponent,
     GameComponent,
+    GameStatComponent,
     AddGameDialog,
     GameStatComponent,
     PlayerStatComponent,
-    AppRoutingModule,
     RouterOutlet
   ],
   providers: [

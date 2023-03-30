@@ -5,46 +5,47 @@ import { Observable } from 'rxjs';
 import { User } from '../model/user';
 
 @Injectable({
-    providedIn: 'root',
+	providedIn: 'root',
 })
 export class AuthenticationClient {
-    constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) {
+	}
 
-    headers = {'content-type': 'application/json'};
+	headers = {'content-type': 'application/json'};
 
-    public login(email: string, password: string): Observable<any> {
-        const user: User = {
-            id: 0,
-            firstName: '',
-            lastName: '',
-            email: email,
-            password: password,
-            kNumber: '',
-            registrationDate: ''
-        };
+	public login(email: string, password: string): Observable<any> {
+		const user: User = {
+			id: 0,
+			firstName: '',
+			lastName: '',
+			email: email,
+			password: password,
+			kNumber: '',
+			registrationDate: ''
+		};
 
-        const body = JSON.stringify(user);
+		const body = JSON.stringify(user);
 
-        return this.http.post(
-            environment.dataEndpoint + '/login', body, { 'headers': this.headers }
-        );
-    }
+		return this.http.post(
+			environment.dataEndpoint + '/login', body, {'headers': this.headers}
+		);
+	}
 
-    public register(firstName: string, lastName: string, email: string, password: string, kNumber: string): Observable<any> {
-        let newUser: User = {
-            id: 0,
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password,
-            kNumber: kNumber,
-            registrationDate: ''
-        }
+	public register(firstName: string, lastName: string, email: string, password: string, kNumber: string): Observable<any> {
+		let newUser: User = {
+			id: 0,
+			firstName: firstName,
+			lastName: lastName,
+			email: email,
+			password: password,
+			kNumber: kNumber,
+			registrationDate: ''
+		}
 
-        const body = JSON.stringify(newUser);
+		const body = JSON.stringify(newUser);
 
-        return this.http.post(
-            environment.dataEndpoint + '/new-user', body,{ 'headers': this.headers }
-        );
-    }
+		return this.http.post(
+			environment.dataEndpoint + '/new-user', body, {'headers': this.headers}
+		);
+	}
 }

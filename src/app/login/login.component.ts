@@ -3,41 +3,41 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+
 import { AuthenticationService } from '../authentication/authentication.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  standalone: true,
-  selector: 'login',
-  templateUrl: './login.component.html',
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    RouterLink,
-    RouterLinkActive
-  ],
+	standalone: true,
+	selector: 'login',
+	templateUrl: './login.component.html',
+	imports: [
+		FormsModule,
+		ReactiveFormsModule,
+		MatCardModule,
+		MatInputModule,
+		MatButtonModule,
+		RouterLink,
+		RouterLinkActive
+	],
 })
 export class LoginComponent implements OnInit {
-  public loginForm!: FormGroup;
+	public loginForm!: FormGroup;
 
-  constructor(private authenticationService: AuthenticationService) { }
+	constructor(private authenticationService: AuthenticationService) {
+	}
 
-  ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required)
-    });
-  }
+	ngOnInit(): void {
+		this.loginForm = new FormGroup({
+			email: new FormControl('', [Validators.required, Validators.email]),
+			password: new FormControl('', Validators.required)
+		});
+	}
 
-  public onSubmit() {
-    // @ts-ignore
-    if(this.loginForm.get('email').value != null && this.loginForm.get('password').value != null) {
-      // @ts-ignore
-      this.authenticationService.login(this.loginForm.get('email').value, this.loginForm.get('password').value);
-    }
-  }
+	public onSubmit() {
+		if (this.loginForm.get('email').value != null && this.loginForm.get('password').value != null) {
+			this.authenticationService.login(this.loginForm.get('email').value, this.loginForm.get('password').value);
+		}
+	}
 
 }

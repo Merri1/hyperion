@@ -11,14 +11,15 @@ import { User } from '../model/user';
 export class GameService {
 	headers = {'content-type': 'application/json'};
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) {
+	}
 
 	public getGames(): Observable<any> {
-		return this.http.get<Game[]>(environment.dataEndpoint + "/games");
+		return this.http.get<Game[]>(environment.dataEndpoint + '/games');
 	}
 
 	public getGameStats(): Observable<any> {
-		return this.http.get<GameStat[]>(environment.dataEndpoint + "/game-stats");
+		return this.http.get<GameStat[]>(environment.dataEndpoint + '/game-stats');
 	}
 
 	public addNewGame(gameName: string, gameGenre: string): Observable<any> {
@@ -43,7 +44,7 @@ export class GameService {
 		const body = JSON.stringify(newGame);
 
 		return this.http.post(
-			environment.dataEndpoint + '/games/new', body,{ 'headers': this.headers }
+			environment.dataEndpoint + '/games/new', body, {'headers': this.headers}
 		);
 	}
 }

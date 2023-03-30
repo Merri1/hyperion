@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
@@ -16,7 +17,8 @@ import { GameStat } from '../model/game-stat';
 		MatButtonModule,
 		RouterLink,
 		RouterLinkActive,
-		MatTableModule
+		MatTableModule,
+		DatePipe
 	],
 })
 export class GameStatComponent implements OnInit {

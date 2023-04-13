@@ -19,7 +19,7 @@ Hyperion is an Angular web application frontend for the [Tau-Ceti Spring applica
 2.  Access application at http://localhost:4200
    
 ### Documentation
-Full documentation of the API specification can be found at [My Website](https://merri1.github.io).
+Full documentation of the API specification can be found [here](https://merri1.github.io/pages/hyperion/hyperion.html).
 - Documentation was generated using [TypeDoc](https://github.com/TypeStrong/typedoc)
 
 ### License

@@ -17,6 +17,8 @@ Hyperion is an Angular web application frontend for the [Tau-Ceti Spring applica
 1.  From a terminal window in the root folder of the project run
 
         npm start
+2.  Access application at http://localhost:4200
+        
 
 <br>
 

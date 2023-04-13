@@ -23,7 +23,7 @@ Hyperion is an Angular web application frontend for the [Tau-Ceti Spring applica
 <br>
 
 # Documentation
-Full documentation of the API specification can be found at [My Website](https:merri1.github.io).
+Full documentation of the API specification can be found at [My Website](https://merri1.github.io).
 - Documentation was generated using [TypeDoc](https://github.com/TypeStrong/typedoc)
 
 <br>

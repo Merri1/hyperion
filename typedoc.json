@@ -1,0 +1,20 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "name": "Hyperion Documentation",
+  "entryPoints": ["./src/app"],
+  "entryPointStrategy": "expand",
+  "out": "../docs/hyperion-docs",
+  "theme": "default",
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "visibilityFilters": {
+    "protected": true,
+    "private": true,
+    "inherited": true
+  },
+  "navigationLinks": {
+    "Home": "https://merri.software",
+    "GitHub": "https://github.com/Merri1"
+  }
+}

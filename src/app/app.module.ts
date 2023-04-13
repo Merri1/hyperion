@@ -24,6 +24,9 @@ import { PlayerStatComponent } from './player-stat/player-stat.component';
 import { PlayerStatService } from './player-stat/player-stat.service';
 import { RegisterComponent } from './register/register.component';
 
+/**
+ * Defines all the Modules, Components and Services in use in this Application
+ */
 @NgModule({
 	declarations: [
 		AppComponent

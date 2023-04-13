@@ -6,8 +6,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLinkActive } from '@angular/router';
 import { RouterLink } from '@angular/router';
+
 import { AuthenticationService } from '../authentication/authentication.service';
 
+/**
+ * A base class for the Register Component
+ */
 @Component({
 	standalone: true,
 	selector: 'app-register',
@@ -22,11 +26,19 @@ import { AuthenticationService } from '../authentication/authentication.service'
 	]
 })
 export class RegisterComponent implements OnInit {
+	/** The registration form */
 	public registerForm!: FormGroup;
 
+	/**
+	 * Constructor for the Register Components
+	 * @param authenticationService For registering new users
+	 */
 	constructor(private authenticationService: AuthenticationService) {
 	}
 
+	/**
+	 * Executed when Register Component is loaded. Creates blank form with validators on require fields.
+	 */
 	ngOnInit(): void {
 		this.registerForm = new FormGroup({
 			firstName: new FormControl('', Validators.required),
@@ -37,11 +49,16 @@ export class RegisterComponent implements OnInit {
 		});
 	}
 
+	/**
+	 * Executed when 'Create Account' button is clicked. Passes form values to AuthenticationService
+	 */
 	public onSubmit() {
+		// KNumber is opional so make it a blank string if it hasn't been entered
 		if (this.registerForm.get('kNumber') == null) {
 			this.registerForm.setValue({kNumber: ' '});
 		}
 
+		// Check form is valid before passing form values
 		if (this.registerForm.valid) {
 			this.authenticationService.register(
 				this.registerForm.get('firstName').value,

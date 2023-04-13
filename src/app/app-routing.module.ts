@@ -9,6 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlayerStatComponent } from './player-stat/player-stat.component';
 import { RegisterComponent } from './register/register.component';
 
+
 const routes: Routes = [
 	{
 		path: 'login',
@@ -45,9 +46,12 @@ const routes: Routes = [
 	}
 ];
 
+/**
+ * A base class for the Application URL Routing. Defines the Components to load when a specific URL endpoint is visited.
+ * AuthenticationGuard checks User is logged in before activating a Component
+ */
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
